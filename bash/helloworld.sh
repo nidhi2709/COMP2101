@@ -110,6 +110,16 @@ function read_input(){
 
 }
 
+#purpose - cpu information
+function cpu_info(){
+  write_header " CPU info "
+  echo "***********************"
+  echo "*** CPU Information***"
+  echo "***********************"
+
+  cat /proc/mem_info
+}
+
 # ignore CTRL+C, CTRL+Z and quite singles using the trap
 trap '' SIGINT SIGQUIT SIGTSTP
 
