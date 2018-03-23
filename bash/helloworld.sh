@@ -1,8 +1,8 @@
 #!bin/bash
 echo "Hello World!" - A simple menu driver shell script to get information about your desktop
 #linux server / desktop.
-# Author : Nidhi Patel
-# Date:
+# Author : Nidhi Patel (200359316)
+# Date: 03/23/2018
 
 # Defined Variables
  LSB=/usr/bin/lsb_release
@@ -92,6 +92,20 @@ function mem_info(){
   pause
 }
 
+#purpose -Display help options
+function help_info(){
+
+  write_header " help "
+  echo " ***************************"
+  echo " ***help***"
+  echo " ***************************"
+  vmstat
+  echo " ***help***"
+  echo " *************************** "
+  ps -h |--help
+  pause
+}
+
 # Purpose - get input via the keyboard and make a decision using case..esac
 function read_input(){
   local c
@@ -102,6 +116,7 @@ function read_input(){
     3) net_info ;;
     4) mem_info ;;
     5) echo "Bye!"; exit 0 ;;
+    6) help ;;
     *)
         echo "Please select between 1 to 5 choice only."
         pause
@@ -121,7 +136,7 @@ function cpu_info(){
 }
 
 # ignore CTRL+C, CTRL+Z and quite singles using the trap
-trap '' SIGINT SIGQUIT SIGTSTP
+trap ' SIGINT SIGQUIT SIGTSTP '
 
 # main logic
 while true
